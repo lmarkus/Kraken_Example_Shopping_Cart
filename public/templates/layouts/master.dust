@@ -16,6 +16,12 @@
                 <li><a href="/cart">{@pre type="content" key="master.cart"/}</a></li>
             </ul>
         </nav>
+        <div class="lang">
+            <ul class="nm-np inline">
+                <li><a href="/setLanguage/en-us"><img src="/img/us.png" alt="English"></a></li>
+                <li><a href="/setLanguage/es-es"><img src="/img/es.png" alt="Spanish"></a></li>
+            </ul>
+        </div>
     </div>
 </header>
 <div class="wrapper">
