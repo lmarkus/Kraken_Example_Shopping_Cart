@@ -1,14 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="nm-np">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <title>{+title /}</title>
-    <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" href="css/app.css"/>
 </head>
-<body>
-<div id="wrapper">
+<body class="nm-np">
+<header class="grey">
+    <div class="wrapper">
+        <h1>{@pre type="content" key="master.storeName"/}</h1>
+        <nav>
+            <ul class="nm-np inline">
+                <li><a href="/">{@pre type="content" key="master.buy"/}</a></li>
+                <li><a href="/products">{@pre type="content" key="master.edit"/}</a></li>
+                <li><a href="/cart">{@pre type="content" key="master.cart"/}</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<div class="wrapper">
     {+body /}
 </div>
-
+<div id="tentacle"></div>
 </body>
 </html>
