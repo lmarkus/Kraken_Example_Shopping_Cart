@@ -3,10 +3,10 @@
 
 module.exports = function (server) {
 
-    server.get('/setlanguage', function (req, res) {
-        var model = { name: 'kraken-example-shopping-cart' };
+    server.get('/setlanguage/:lang', function (req, res) {
 
-        res.render('setlanguage', model);
+        res.cookie('language', req.param('lang'));
+        res.redirect('/');
 
     });
 
