@@ -5,6 +5,7 @@ var kraken = require('kraken-js'),
     db = require('./lib/database'),
     language = require('./lib/language'),
     express = require('express'),
+    paypal = require('paypal-rest-sdk'),
     app = {};
 
 
@@ -12,6 +13,9 @@ app.configure = function configure(nconf, next) {
     // Fired when an app configures itself
     //Configure the database
     db.config(nconf.get('databaseConfig'));
+
+    //Configure the PayPal SDK
+    paypal.configure(nconf.get('paypalConfig'));
     next(null);
 };
 

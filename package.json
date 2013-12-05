@@ -20,7 +20,8 @@
     "dustjs-linkedin": "~2.0.3",
     "dustjs-helpers": "~1.1.1",
     "makara": "~0.3.0",
-    "mongoose": "~3.8.1"
+    "mongoose": "~3.8.1",
+    "paypal-rest-sdk": "~0.6.4"
   },
   "devDependencies": {
     "mocha": "~1.10.0",
