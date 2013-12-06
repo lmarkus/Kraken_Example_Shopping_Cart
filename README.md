@@ -135,12 +135,13 @@ app.configure = function configure(nconf, next) {
 
 In a separate terminal window let's start up mondodb.
 
-``` javascript
-mongod
+```bash
+$ mongod
+```
 
 You can now give your application a go at this point. If all goes well, a connection to the database will be opened.
 
-``` javascript
+```bash
 $npm start
 
 Listening on 8000
