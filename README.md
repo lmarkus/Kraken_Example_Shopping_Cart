@@ -19,6 +19,9 @@ In particular, this example will highlight the following things:
 * Using Kraken's built-in security
 * Integration with PayPal
 
+This repository was created specifically to hold the example. If you looks at the [commit list](https://github.com/lmarkus/Kraken_Example_Shopping_Cart/commits/master), you will see
+how the shopping cart was built, step by step.
+
 ## Prerequisites
 * This example requires that [MongoDB](http://www.mongodb.org/downloads) is installed and running on it's default port.
 * You will --of course-- need [Node](http://nodejs.org) (Version >= 0.10.20 preferred)
@@ -51,6 +54,8 @@ $ yo kraken
 The generator will set up the app and install the dependencies. After it's done, just go into the newly created directory
 `cd Kraken_Example_Shopping_Cart`
 
+[<img src='http://upload.wikimedia.org/wikipedia/commons/thumb/2/25/External.svg/600px-External.svg.png' width='12px' height='12px'/>View commit](https://github.com/lmarkus/Kraken_Example_Shopping_Cart/commit/5056913290f6dd034cc03e7e0702f9fd9628503e)
+
 ## Adding some custom configuration
 Our application will connect to a database, so we need to supply some information such as the host name, and schema to
 connect to. Hardcoding these values is a bad idea, so instead we'll use the kraken configuration file: `./config/app.json`.
@@ -65,6 +70,9 @@ We'll add the following db credentials to `./config/app.json`:
 
 This configuration will be parsed by the application on startup using `nconf`. The data will then be accessible within the
 application
+
+[<img src='http://upload.wikimedia.org/wikipedia/commons/thumb/2/25/External.svg/600px-External.svg.png' width='12px' height='12px'/>View commit](https://github.com/lmarkus/Kraken_Example_Shopping_Cart/commit/9df01dd05e3b2f34a2dc42438aa4c253d08d93a6)
+
 
 ## Adding a custom library - Database connectivity
 For this example we'll be using [Mongoose](http://mongoosejs.com/) to talk to our database, as well as for creating some
@@ -97,6 +105,8 @@ Using this configuration it will open a connection to the database: `mongoose.co
 
 **Don't forget to add mongoose to the dependencies: ** `npm install --save mongoose`
 
+[<img src='http://upload.wikimedia.org/wikipedia/commons/thumb/2/25/External.svg/600px-External.svg.png' width='12px' height='12px'/>View commit](https://github.com/lmarkus/Kraken_Example_Shopping_Cart/commit/b071b53a802995df252d55cbb7f1080818818ceb)
+
 Next up? Let's invoke it!
 
 ## Using Kraken's start-up hooks -- Configuring the database
@@ -119,6 +129,9 @@ app.configure = function configure(nconf, next) {
     next(null);
 };
 ```
+
+[<img src='http://upload.wikimedia.org/wikipedia/commons/thumb/2/25/External.svg/600px-External.svg.png' width='12px' height='12px'/>View commit](https://github.com/lmarkus/Kraken_Example_Shopping_Cart/commit/548a5a1ef270475270bbc1342e38f66439e053c7)
+
 
 You can give your application a go at this point.  If all goes well, a connection to the database will be opened
 ``` javascript
@@ -170,6 +183,9 @@ app.requestBeforeRoute = function requestBeforeRoute(server) {
 };
 ```
 
+[<img src='http://upload.wikimedia.org/wikipedia/commons/thumb/2/25/External.svg/600px-External.svg.png' width='12px' height='12px'/>View commit](https://github.com/lmarkus/Kraken_Example_Shopping_Cart/commit/95b03fca5956d510a6141f983bc22a82ffc21ed2)
+
+
 ###Add a controller ( using the generator )
 Finally, we need to add a controller that will allow the user to choose the language. You could manually create the file
 and populate it, but instead we'll let the generator do some work for us:
@@ -179,6 +195,9 @@ $yo kraken:controller setLanguage
 [?] Respond to XHR requests? No
    create controllers/setLanguage.js
 ```
+
+[<img src='http://upload.wikimedia.org/wikipedia/commons/thumb/2/25/External.svg/600px-External.svg.png' width='12px' height='12px'/>View commit](https://github.com/lmarkus/Kraken_Example_Shopping_Cart/commit/fcc4c668b59a284e8e5895cf9344ba76bb648299)
+
 
 This will create a simple controller at `./controllers/setLanguage.js`.  We're going to tweak this controller a bit, and
 make it accept a `lang` parameter as part of the path, and turn it into a cookie. After this, it will redirect the user back
@@ -192,12 +211,15 @@ to the root of the site.
 
     });
 ```
+[<img src='http://upload.wikimedia.org/wikipedia/commons/thumb/2/25/External.svg/600px-External.svg.png' width='12px' height='12px'/>View commit](https://github.com/lmarkus/Kraken_Example_Shopping_Cart/commit/b26bcce74f38ffe236fbef91ffb390f85681e3b5)
 
 This is good enough for our basic setup.
 Let's add some meat to the site now!
 
 ## Using content bundles -- Making your shopping cart multi-lingual
 First, we throw in some stylesheets and assets to make our site more visually appealing.
+[<img src='http://upload.wikimedia.org/wikipedia/commons/thumb/2/25/External.svg/600px-External.svg.png' width='12px' height='12px'/>View commit](https://github.com/lmarkus/Kraken_Example_Shopping_Cart/commit/a8036267d3784bd57554c9c82a1f22412b2003ec)
+
 Next, let's modify our templates to take advantage of these assets.
 
 Let's start with the master layout, which defines the site header `./public/templates/layouts/master.dust`
@@ -223,6 +245,8 @@ To access these properties in the dust layout, we'll use special dust tags in th
             </ul>
         </nav>
 ```
+[<img src='http://upload.wikimedia.org/wikipedia/commons/thumb/2/25/External.svg/600px-External.svg.png' width='12px' height='12px'/>View commit](https://github.com/lmarkus/Kraken_Example_Shopping_Cart/commit/b6830abfedb3d28c30622798bd4ae1fca16d6cff)
+
 
 We will apply the same treatment to our index page by adding a brief introductory paragraph:
 
@@ -241,6 +265,7 @@ And add some content to it's bundle
 index.greeting=Welcome to the Kraken Store. Your one-stop-shop for kraken merchandise.
 index.addToCart=Add to cart
 ```
+[<img src='http://upload.wikimedia.org/wikipedia/commons/thumb/2/25/External.svg/600px-External.svg.png' width='12px' height='12px'/>View commit](https://github.com/lmarkus/Kraken_Example_Shopping_Cart/commit/05a32c19eb1458707108314e0559ba500bda41dc)
 
 Start the application `npm start` and give it a [quick spin](http://localhost:8080). Looking nice, right?
 
@@ -273,6 +298,8 @@ master.buy=Compre nuestros productos!
 master.edit=Editor de Productos
 master.cart=Ver carrito
 ```
+
+[<img src='http://upload.wikimedia.org/wikipedia/commons/thumb/2/25/External.svg/600px-External.svg.png' width='12px' height='12px'/>View commit](https://github.com/lmarkus/Kraken_Example_Shopping_Cart/commit/00c481794c77bd7cb116571f67342f9f8262eebf)
 
 Start your application again, load it in the browser and click on the language flags. Can you say Hola Kraken?
 
@@ -320,6 +347,8 @@ var productModel = function () {
 module.exports = new productModel();
 ```
 
+[<img src='http://upload.wikimedia.org/wikipedia/commons/thumb/2/25/External.svg/600px-External.svg.png' width='12px' height='12px'/>View commit](https://github.com/lmarkus/Kraken_Example_Shopping_Cart/commit/f37f1f66de657e2d57778310bfad025ea3fe33ae)
+
 Now that we have a model, let's create a CRUD controller for the product editor.
 On this example, we'll only focus on the Creation, Retrieval and Deletion of products.
 
@@ -337,6 +366,8 @@ and use the middleware under the `app.requestBeforeRoute` hook
 ```javascript
     server.use(express.methodOverride());
 ```
+[<img src='http://upload.wikimedia.org/wikipedia/commons/thumb/2/25/External.svg/600px-External.svg.png' width='12px' height='12px'/>View commit](https://github.com/lmarkus/Kraken_Example_Shopping_Cart/commit/db2b8fe2b08db65410c3beae2272fb296507c5fa)
+
 
 Let's create the controller `./controllers/products.js` (You should know how to use the generator by now)
 
@@ -413,6 +444,8 @@ For delete we'll use... well, DELETE. We'll use the ID of the product to find an
 ```
 
 And that's it for our controller!
+[<img src='http://upload.wikimedia.org/wikipedia/commons/thumb/2/25/External.svg/600px-External.svg.png' width='12px' height='12px'/>View commit](https://github.com/lmarkus/Kraken_Example_Shopping_Cart/commit/f8e91c2724c26e4195d8e117a6f8a96a0e27e542)
+
 
 ### The view
 Let's create a template that will allow you to use the newly minted controller. It will have a section for adding a new
@@ -477,6 +510,8 @@ The `methodOverride()` middleware will use this to properly route to the delete 
 This will check to see if any products are present, and if they are, it will iterate over the list, creating a form for
 manipulating each product.
 
+[<img src='http://upload.wikimedia.org/wikipedia/commons/thumb/2/25/External.svg/600px-External.svg.png' width='12px' height='12px'/>View commit](https://github.com/lmarkus/Kraken_Example_Shopping_Cart/commit/e9037fceeeb43dfffbae783442f398376b71ca35)
+
 Fire up the server, visit `/products` and add a few products.
 
 ## Making a simple cart
@@ -509,6 +544,9 @@ Notice two things:
 * Use of the csrf token
 * Use of a content bundle for the label of the button
 
+[<img src='http://upload.wikimedia.org/wikipedia/commons/thumb/2/25/External.svg/600px-External.svg.png' width='12px' height='12px'/>View commit](https://github.com/lmarkus/Kraken_Example_Shopping_Cart/commit/479a9747443806ac13fa16e9c02eef9c83754135)
+
+
 ### The Controllers
 Let's modify `./controllers/index.js` to serve a list of products to the main page. This is pretty straightforward as
 you've seen before. Retrieve the items from the database, and pass them to the template:
@@ -529,9 +567,10 @@ server.get('/', function (req, res) {
     });
 });
 ```
+[<img src='http://upload.wikimedia.org/wikipedia/commons/thumb/2/25/External.svg/600px-External.svg.png' width='12px' height='12px'/>View commit](https://github.com/lmarkus/Kraken_Example_Shopping_Cart/commit/479a9747443806ac13fa16e9c02eef9c83754135)
 
-When a customer adds an item to the shopping cart, we want to do two things.
-1 Put it in the session memory
+Now, when a customer adds an item to the shopping cart, we want to do two things.
+1 Put it in the session memory store.
 2 Display what's in the cart.
 
 We need a `cart` controller for this.
@@ -549,6 +588,7 @@ $ yo kraken:page cart
    invoke   kraken:locale:/usr/local/lib/node_modules/generator-kraken/page/index.js
    create     locales/US/en/cart.properties
 ```
+Note: We won't be modifying the content bundle for this section. That's left as an excercise for the reader.
 
 The `./controllers/cart.js` controller will have two functions.
 
@@ -647,11 +687,15 @@ enter their credit card information. (We've prefilled it with some values to mak
 </form>
 ```
 
+[<img src='http://upload.wikimedia.org/wikipedia/commons/thumb/2/25/External.svg/600px-External.svg.png' width='12px' height='12px'/>View commit](https://github.com/lmarkus/Kraken_Example_Shopping_Cart/commit/5aa586fc54f7e44ad1e90771514e633f15225f9c)
+
 All the pieces are in place. There's just one step left: **Money!**
 
 ##Integrating with PayPal
 We'll be using PayPal's [REST SDK for Node](https://github.com/paypal/rest-api-sdk-nodejs) to give our cart the ability
-to actually charge the customer. Please read through the documentation to understand how this API works.
+to actually charge the customer. Please read through the documentation to understand how this API works. We will be connecting
+to PayPAl's sandbox environment, so this API call will not result in credit cards being charged. We recommend that you use a [randomly generated](http://www.darkcoding.net/credit-card-numbers/) credit card number for testing.
+Simply use any expiration date in the future.
 
 First, let's install the SDK, and save it in our `package.json` file:
 `$ npm install --save paypal-rest-sdk`
@@ -764,6 +808,14 @@ module.exports = function (server) {
 After the payment has been completed, we'll pass it to a very simple template `./public/templates/result.dust` that shows
 the final status of the operation.
 
+[<img src='http://upload.wikimedia.org/wikipedia/commons/thumb/2/25/External.svg/600px-External.svg.png' width='12px' height='12px'/>View commit](https://github.com/lmarkus/Kraken_Example_Shopping_Cart/commit/9e46ec5aefcb55ef9c40a6f2a2f407e4215bc4fa)
+
 ## And you're done!
 This is your example.
 If you find any typos, errors, bugs or you have suggestions for improvement, please feel free to open an issue, or send your pull requests.
+
+
+## Notes
+
+* This example uses floating point numbers to represent currency.  This is a bad idea. A better solution should use an arbitrary precision library such as [bignum](https://github.com/justmoon/node-bignum). We chose to go for simplicity in this proof of concept, because some of these libraries can be tricky to install on certain environments.
+* If you plan on accepting credit cards, please make sure that your system is [PCI compliant](https://www.pcisecuritystandards.org)
