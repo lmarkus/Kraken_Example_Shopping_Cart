@@ -364,7 +364,7 @@ We want to make this controller RESTful, so we'll be using post, get and delete 
 To keep the product simple, we'll just use web forms to post the information, so we're going to use express' methodOverride() middleware ([Documentation](http://www.senchalabs.org/connect/methodOverride.html))
 to accept a `_method` parameter along with our requests.
 
-In `./index.jsp` we're going to require express
+In `./index.js` we're going to require express
 ```javascript
     express = require('express'),
 ```
