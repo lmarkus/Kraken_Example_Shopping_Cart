@@ -133,7 +133,13 @@ app.configure = function configure(nconf, next) {
 [<img src='http://upload.wikimedia.org/wikipedia/commons/thumb/2/25/External.svg/600px-External.svg.png' width='12px' height='12px'/>View commit](https://github.com/lmarkus/Kraken_Example_Shopping_Cart/commit/548a5a1ef270475270bbc1342e38f66439e053c7)
 
 
-You can give your application a go at this point.  If all goes well, a connection to the database will be opened
+In a separate terminal window let's start up mondodb.
+
+``` javascript
+mongod
+
+You can now give your application a go at this point. If all goes well, a connection to the database will be opened.
+
 ``` javascript
 $npm start
 
