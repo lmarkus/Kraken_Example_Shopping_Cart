@@ -700,7 +700,7 @@ All the pieces are in place. There's just one step left: **Money!**
 ##Integrating with PayPal
 We'll be using PayPal's [REST SDK for Node](https://github.com/paypal/rest-api-sdk-nodejs) to give our cart the ability
 to actually charge the customer. Please read through the documentation to understand how this API works. We will be connecting
-to PayPAl's sandbox environment, so this API call will not result in credit cards being charged. We recommend that you use a [randomly generated](http://www.darkcoding.net/credit-card-numbers/) credit card number for testing.
+to PayPal's sandbox environment, so this API call will not result in credit cards being charged. We recommend that you use a [randomly generated](http://www.darkcoding.net/credit-card-numbers/) credit card number for testing.
 Simply use any expiration date in the future.
 
 First, let's install the SDK, and save it in our `package.json` file:
