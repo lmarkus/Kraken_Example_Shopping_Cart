@@ -15,11 +15,12 @@ In particular, this example will highlight the following things:
 * Creating custom libraries
 * Using middleware
 * Using models for our data
+* Using MongoDB and Mongoose
 * Internationalization with the content bundles
 * Using Kraken's built-in security
 * Integration with PayPal
 
-This repository was created specifically to hold the example. If you looks at the [commit list](https://github.com/lmarkus/Kraken_Example_Shopping_Cart/commits/master), you will see
+This repository was created specifically to hold the example. If you look at the [commit list](https://github.com/lmarkus/Kraken_Example_Shopping_Cart/commits/master), you will see
 how the shopping cart was built, step by step.
 
 ## Prerequisites
@@ -704,6 +705,13 @@ to actually charge the customer. Please read through the documentation to unders
 to PayPal's sandbox environment, so this API call will not result in credit cards being charged. We recommend that you use a [randomly generated](http://www.darkcoding.net/credit-card-numbers/) credit card number for testing.
 Simply use any expiration date in the future.
 
+----------
+####Note about security and encryption.
+This example shows you how to take credit cards, but does not address security. If you plan to use this code in production, please be sure to make your system [PCI compliant](https://www.pcisecuritystandards.org) to ensure the safety of your customers.
+
+----------
+
+
 First, let's install the SDK, and save it in our `package.json` file:
 `$ npm install --save paypal-rest-sdk`
 
@@ -825,4 +833,4 @@ If you find any typos, errors, bugs or you have suggestions for improvement, ple
 ## Notes
 
 * This example uses floating point numbers to represent currency.  This is a bad idea. A better solution should use an arbitrary precision library such as [bignum](https://github.com/justmoon/node-bignum). We chose to go for simplicity in this proof of concept, because some of these libraries can be tricky to install on certain environments.
-* If you plan on accepting credit cards, please make sure that your system is [PCI compliant](https://www.pcisecuritystandards.org)
+* Security: If you need to take credit card payments, but don't want to worry about PCI compliance you can use PayPal's checkout. See a running example [here](http://runnable.com/UXgzNO_v2oZyAADG/make-a-payment-with-paypal-api-for-node-js) You could also use a solution like Braintree's [client side encryption(https://www.braintreepayments.com/braintrust/client-side-encryption).
