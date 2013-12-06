@@ -133,7 +133,13 @@ app.configure = function configure(nconf, next) {
 [<img src='http://upload.wikimedia.org/wikipedia/commons/thumb/2/25/External.svg/600px-External.svg.png' width='12px' height='12px'/>View commit](https://github.com/lmarkus/Kraken_Example_Shopping_Cart/commit/548a5a1ef270475270bbc1342e38f66439e053c7)
 
 
-You can give your application a go at this point.  If all goes well, a connection to the database will be opened
+In a separate terminal window let's start up mondodb.
+
+``` javascript
+mongod
+
+You can now give your application a go at this point. If all goes well, a connection to the database will be opened.
+
 ``` javascript
 $npm start
 
@@ -358,7 +364,7 @@ We want to make this controller RESTful, so we'll be using post, get and delete 
 To keep the product simple, we'll just use web forms to post the information, so we're going to use express' methodOverride() middleware ([Documentation](http://www.senchalabs.org/connect/methodOverride.html))
 to accept a `_method` parameter along with our requests.
 
-In `./index.jsp` we're going to require express
+In `./index.js` we're going to require express
 ```javascript
     express = require('express'),
 ```
@@ -694,7 +700,7 @@ All the pieces are in place. There's just one step left: **Money!**
 ##Integrating with PayPal
 We'll be using PayPal's [REST SDK for Node](https://github.com/paypal/rest-api-sdk-nodejs) to give our cart the ability
 to actually charge the customer. Please read through the documentation to understand how this API works. We will be connecting
-to PayPAl's sandbox environment, so this API call will not result in credit cards being charged. We recommend that you use a [randomly generated](http://www.darkcoding.net/credit-card-numbers/) credit card number for testing.
+to PayPal's sandbox environment, so this API call will not result in credit cards being charged. We recommend that you use a [randomly generated](http://www.darkcoding.net/credit-card-numbers/) credit card number for testing.
 Simply use any expiration date in the future.
 
 First, let's install the SDK, and save it in our `package.json` file:
