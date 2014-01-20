@@ -431,9 +431,13 @@ using the built-in [save function](http://mongoosejs.com/docs/api.html#model_Mod
         newProduct.whatAmI();
 
         //Save it to the database.
-        newProduct.save();
+        newProduct.save(function (err) {
+            if (err) {
+                console.log('save error', err);
+            }
 
-        res.redirect('/products');
+            res.redirect('/products');
+        });
     });
 ```
 **IMPORTANT NOTE: Using floating point for currency is bad! We're just trying to keep this example simple. Please read the final code for more information**
@@ -453,6 +457,7 @@ For delete we'll use... well, DELETE. We'll use the ID of the product to find an
 
 And that's it for our controller!
 [<img src='http://upload.wikimedia.org/wikipedia/commons/thumb/2/25/External.svg/600px-External.svg.png' width='12px' height='12px'/>View commit](https://github.com/lmarkus/Kraken_Example_Shopping_Cart/commit/f8e91c2724c26e4195d8e117a6f8a96a0e27e542)
+[<img src='http://upload.wikimedia.org/wikipedia/commons/thumb/2/25/External.svg/600px-External.svg.png' width='12px' height='12px'/>Amendment 1:](https://github.com/lmarkus/Kraken_Example_Shopping_Cart/commit/f3024c4f4a93e049ec981de4bbca7a607a86ca32)
 
 
 ### The view

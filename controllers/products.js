@@ -59,16 +59,19 @@ module.exports = function (server) {
 
         //Show it in console for educational purposes...
         newProduct.whatAmI();
-	/* The call back recieves to more arguments ->product/s that is/are added to the database
-	   and number of rows that are affected because of save, which right now are ignored 
-	   only errors object is consumed*/
-        newProduct.save(function(err) {
-	    if(err) {
-		console.log('save error', err);
-	    }
 
-        res.redirect('/products');
-	});
+        /*
+         The call back receives two more arguments -> product/s that is/are added to the database
+         and number of rows that are affected because of save, which right now are ignored.
+         We only check for errors.
+         */
+        newProduct.save(function (err) {
+            if (err) {
+                console.log('save error', err);
+            }
+
+            res.redirect('/products');
+        });
     });
 
     /**
