@@ -24,7 +24,8 @@ var productModel = function () {
      * Format the price of the product to show a dollar sign, and two decimal places
      */
     productSchema.methods.prettyPrice = function () {
-        return '$' + this.price.toFixed(2);
+        if(this)
+            return '$' + this.price.toFixed(2);
     };
 
     return mongoose.model('Product', productSchema);
