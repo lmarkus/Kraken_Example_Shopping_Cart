@@ -14,7 +14,7 @@ module.exports = function (grunt) {
             compile: {
                 options: {
                     baseUrl: 'public/js',
-                    mainConfigFile: 'public/js/config.js',
+                    mainConfigFile: 'public/js/app.js',
                     dir: '.build/js',
                     optimize: 'uglify',
                     modules: [{name: 'app'}]
